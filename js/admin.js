@@ -60,6 +60,7 @@
 
       return `<tr>
         <td>${esc(g.name)}</td>
+        <td>${esc(g.phone || '—')}</td>
         <td>${rsvpBadge}</td>
         <td>${partyLabel}</td>
         <td>${esc(g.dietary || '—')}</td>

@@ -409,13 +409,14 @@ const OscarData = (() => {
     const categories = getCategories();
     const catNames = categories.map(c => c.name);
 
-    const header = ['Name', 'RSVP', 'Party ID', 'Party Host', 'Dietary',
+    const header = ['Name', 'Phone', 'RSVP', 'Party ID', 'Party Host', 'Dietary',
                     'Ballot Submitted', 'Submitted At', 'Score', ...catNames];
     const rows = guests.map(g => {
       const score = scoreGuest(g);
       const preds = catNames.map(c => (g.predictions && g.predictions[c]) || '');
       return [
         g.name,
+        g.phone || '',
         g.rsvp || '',
         g.partyId || '',
         g.isPartyHost ? 'Yes' : '',

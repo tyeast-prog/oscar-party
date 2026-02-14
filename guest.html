@@ -14,12 +14,53 @@
     </header>
 
     <nav class="top-nav">
-      <a href="index.html">Home</a>
-      <a href="setup.html">Setup</a>
       <a href="guest.html" class="active">Guest Form</a>
-      <a href="admin.html">Dashboard</a>
       <a href="scoreboard.html">Scoreboard</a>
     </nav>
+
+    <!-- Party Info -->
+    <div class="section">
+      <div class="category-block" style="border-color:var(--gold);">
+        <h2 style="text-align:center;margin-bottom:1rem;">Oscar Viewing Party 2026</h2>
+
+        <p style="text-align:center;margin-bottom:0.25rem;"><strong style="color:var(--gold);">When:</strong> Sunday, March 15</p>
+        <p style="text-align:center;margin-bottom:0.25rem;"><em style="color:var(--gold-light);">6:00 PM</em> &mdash; Red Carpet viewing, nosh and games</p>
+        <p style="text-align:center;margin-bottom:0.75rem;"><strong style="color:var(--gold-light);">7:00 PM</strong> &mdash; Awards show begins</p>
+        <p style="text-align:center;margin-bottom:1.25rem;color:var(--light-gray);">Drop in (or out) anytime</p>
+
+        <p style="text-align:center;margin-bottom:1.25rem;">There will be food, drinks, games, prizes and more.<br>Don't forget to complete your ballot!</p>
+
+        <div style="border-top:1px solid var(--medium-gray);padding-top:1rem;margin-top:1rem;">
+          <h3 style="text-align:center;margin-bottom:0.5rem;">What to Bring</h3>
+          <p style="text-align:center;margin-bottom:1rem;">Yourself and a <strong>2026 Best Picture-themed cocktail or mocktail</strong> (drink contest!)</p>
+
+          <h3 style="text-align:center;margin-bottom:0.5rem;">Drink Contest</h3>
+          <p style="text-align:center;margin-bottom:0.75rem;color:var(--light-gray);">Use your creativity to design a cocktail or mocktail based on this year's nominees (select one below). Everything from the choice of ingredients, drinkware and taste will be considered in the voting process.</p>
+
+          <p style="text-align:center;color:var(--gold);margin-bottom:0.5rem;"><strong>This year's Best Picture nominees:</strong></p>
+          <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.4rem 0.75rem;margin-bottom:1rem;">
+            <span>Bugonia</span> <span>&bull;</span>
+            <span>F1</span> <span>&bull;</span>
+            <span>Frankenstein</span> <span>&bull;</span>
+            <span>Hamnet</span> <span>&bull;</span>
+            <span>Marty Supreme</span> <span>&bull;</span>
+            <span>One Battle After Another</span> <span>&bull;</span>
+            <span>The Secret Agent</span> <span>&bull;</span>
+            <span>Sentimental Value</span> <span>&bull;</span>
+            <span>Sinners</span> <span>&bull;</span>
+            <span>Train Dreams</span>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--medium-gray);padding-top:1rem;margin-top:1rem;">
+          <p style="text-align:center;color:var(--light-gray);">Can't stay to the end? No worries, leave when you are ready or bring comfy pajamas if you're having too much fun to leave &#128522;</p>
+        </div>
+
+        <div style="border-top:1px solid var(--medium-gray);padding-top:1rem;margin-top:1rem;">
+          <p style="text-align:center;"><strong style="color:var(--gold);">To participate in the ballot contest, please complete your ballot by Friday, 3/13.</strong></p>
+        </div>
+      </div>
+    </div>
 
     <!-- Lookup existing submission -->
     <div id="lookup-section" class="section">
@@ -39,6 +80,11 @@
       <div class="form-group">
         <label for="guest-name">Name *</label>
         <input type="text" id="guest-name" required placeholder="Your full name">
+      </div>
+
+      <div class="form-group">
+        <label for="guest-phone">Phone Number (for text updates and reminders)</label>
+        <input type="tel" id="guest-phone" placeholder="(555) 123-4567">
       </div>
 
       <div class="form-group">

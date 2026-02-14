@@ -188,6 +188,7 @@
     if (!host) return;
 
     document.getElementById('guest-name').value = host.name || '';
+    document.getElementById('guest-phone').value = host.phone || '';
     document.getElementById('dietary').value = host.dietary || '';
 
     // RSVP
@@ -225,6 +226,7 @@
   // --- Submit ---
   document.getElementById('btn-submit').addEventListener('click', () => {
     const name = document.getElementById('guest-name').value.trim();
+    const phone = document.getElementById('guest-phone').value.trim();
     const rsvp = document.querySelector('input[name="rsvp"]:checked')?.value;
     const dietary = document.getElementById('dietary').value.trim();
 
@@ -249,7 +251,7 @@
         OscarData.deleteGuestsByPartyId(editingPartyId);
       }
       OscarData.saveGuest({
-        name, rsvp, dietary,
+        name, phone, rsvp, dietary,
         partySize: 1, partyNames: [],
         predictions: {}, ballotSubmitted: false,
         submittedAt: now,
@@ -306,6 +308,7 @@
 
       OscarData.saveGuest({
         name: pName,
+        phone: pi === 0 ? phone : '',
         rsvp: 'yes',
         dietary: pi === 0 ? dietary : '',
         partyId,
