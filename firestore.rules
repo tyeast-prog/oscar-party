@@ -1,0 +1,20 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Config document (categories, winners, showDate)
+    // Anyone can read, only authenticated or open write for party use
+    match /config/{docId} {
+      allow read: if true;
+      allow write: if true;
+    }
+
+    // Guests collection
+    // Anyone can read and write (open access for party guests)
+    match /guests/{guestId} {
+      allow read: if true;
+      allow write: if true;
+    }
+  }
+}

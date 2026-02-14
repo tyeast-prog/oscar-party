@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guest Form — Oscar Party</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>RSVP &amp; Predictions</h1>
+      <p>Fill in your info and make your picks!</p>
+    </header>
+
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="setup.html">Setup</a>
+      <a href="guest.html" class="active">Guest Form</a>
+      <a href="admin.html">Dashboard</a>
+      <a href="scoreboard.html">Scoreboard</a>
+    </nav>
+
+    <!-- Lookup existing submission -->
+    <div id="lookup-section" class="section">
+      <h2>Returning Guest?</h2>
+      <p style="color:var(--light-gray);margin-bottom:0.75rem;">Enter your name to look up and edit a previous submission.</p>
+      <div style="display:flex;gap:0.5rem;align-items:end;">
+        <input type="text" id="lookup-name" placeholder="Your name" style="max-width:300px">
+        <button class="btn btn-outline btn-sm" id="btn-lookup">Look Up</button>
+      </div>
+      <div id="lookup-msg" class="hidden" style="margin-top:0.5rem"></div>
+    </div>
+
+    <!-- Guest form -->
+    <div id="form-section" class="section">
+      <h2>Your Info</h2>
+
+      <div class="form-group">
+        <label for="guest-name">Name *</label>
+        <input type="text" id="guest-name" required placeholder="Your full name">
+      </div>
+
+      <div class="form-group">
+        <label>RSVP *</label>
+        <div class="radio-group">
+          <label><input type="radio" name="rsvp" value="yes"> Yes, I'll be there!</label>
+          <label><input type="radio" name="rsvp" value="no"> Can't make it</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dietary">Dietary Restrictions</label>
+        <input type="text" id="dietary" placeholder="e.g. vegetarian, nut allergy">
+      </div>
+
+      <!-- Party size (shown only when RSVP = yes) -->
+      <div id="party-size-section" class="hidden">
+        <div class="form-group">
+          <label for="party-size">Number of Guests in Your Party (including you)</label>
+          <input type="number" id="party-size" min="1" max="20" value="1" style="max-width:120px;">
+        </div>
+        <div id="party-names-container"></div>
+      </div>
+
+      <!-- Predictions (shown only when RSVP = yes) -->
+      <div id="predictions-section" class="hidden">
+        <h2 style="margin-top:1.5rem">Predictions</h2>
+        <p style="color:var(--light-gray);margin-bottom:1rem;">Pick who each person thinks will win.</p>
+        <div id="predictions-container"></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-gold" id="btn-submit">Submit</button>
+      </div>
+      <div id="form-msg" class="hidden" style="margin-top:0.75rem"></div>
+    </div>
+
+    <!-- Confirmation (shown after submit) -->
+    <div id="confirmation-section" class="hidden">
+      <div class="confirmation fade-in">
+        <h2>You're All Set!</h2>
+        <p id="confirm-text">Thanks for submitting your RSVP and predictions.</p>
+        <div class="btn-group" style="justify-content:center">
+          <button class="btn btn-outline" id="btn-edit">Edit My Submission</button>
+          <a class="btn btn-outline" href="index.html">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/guest.js"></script>
+</body>
+</html>

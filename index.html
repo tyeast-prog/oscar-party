@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscar Party</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Oscar Party</h1>
+      <p>Your all-in-one awards night companion</p>
+    </header>
+
+    <div class="card-grid" id="cards">
+      <!-- Setup -->
+      <div class="card">
+        <h3>Setup</h3>
+        <p>Configure categories and nominees for this year's ceremony.</p>
+        <span class="status" id="status-setup">Not configured</span>
+        <a class="card-link" href="setup.html">Open Setup</a>
+      </div>
+
+      <!-- Guest Form -->
+      <div class="card">
+        <h3>Guest Form</h3>
+        <p>RSVP, dietary info, and ballot predictions — one link for every guest.</p>
+        <span class="status" id="status-guests">0 guests</span>
+        <a class="card-link" href="guest.html">Open Form</a>
+      </div>
+
+      <!-- Admin Dashboard -->
+      <div class="card">
+        <h3>Admin Dashboard</h3>
+        <p>View RSVPs, track ballots, send reminders, and export data.</p>
+        <span class="status" id="status-admin">—</span>
+        <a class="card-link" href="admin.html">Open Dashboard</a>
+      </div>
+
+      <!-- Live Scoreboard -->
+      <div class="card">
+        <h3>Live Scoreboard</h3>
+        <p>Mark winners on party night and watch the leaderboard update live.</p>
+        <span class="status" id="status-score">0 / 0 announced</span>
+        <a class="card-link" href="scoreboard.html">Open Scoreboard</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script>
+    (function() {
+      // Setup status
+      const setupEl = document.getElementById('status-setup');
+      if (OscarData.categoriesConfigured()) {
+        const cats = OscarData.getCategories();
+        const withNoms = cats.filter(c => c.nominees && c.nominees.length > 0).length;
+        setupEl.textContent = withNoms + ' / ' + cats.length + ' categories ready';
+        setupEl.classList.add('ok');
+      }
+
+      // Guest status
+      const guestEl = document.getElementById('status-guests');
+      const guests = OscarData.getGuests();
+      const count = guests.length;
+      guestEl.textContent = count + ' guest' + (count !== 1 ? 's' : '') + ' registered';
+      if (count > 0) guestEl.classList.add('ok');
+
+      // Admin status
+      const adminEl = document.getElementById('status-admin');
+      const yesCount = guests.filter(g => g.rsvp === 'yes').length;
+      const ballotCount = guests.filter(g => g.ballotSubmitted).length;
+      adminEl.textContent = yesCount + ' RSVPs, ' + ballotCount + ' ballots';
+      if (yesCount > 0) adminEl.classList.add('ok');
+
+      // Scoreboard status
+      const scoreEl = document.getElementById('status-score');
+      const winners = OscarData.getWinners();
+      const announced = Object.keys(winners).length;
+      const total = OscarData.getCategories().length;
+      scoreEl.textContent = announced + ' / ' + total + ' announced';
+      if (announced > 0) scoreEl.classList.add('ok');
+    })();
+  </script>
+</body>
+</html>
