@@ -16,28 +16,142 @@ const OscarData = (() => {
     showDate: 'oscar_show_date',
   };
 
-  // --- Default Categories ---
+  // --- Default Categories (98th Academy Awards — 2026) ---
   const DEFAULT_CATEGORIES = [
-    'Best Picture',
-    'Best Director',
-    'Best Actor',
-    'Best Actress',
-    'Best Supporting Actor',
-    'Best Supporting Actress',
-    'Best Original Screenplay',
-    'Best Adapted Screenplay',
-    'Best Animated Feature',
-    'Best International Feature',
-    'Best Documentary Feature',
-    'Best Original Score',
-    'Best Original Song',
-    'Best Cinematography',
-    'Best Film Editing',
-    'Best Production Design',
-    'Best Costume Design',
-    'Best Makeup and Hairstyling',
-    'Best Sound',
-    'Best Visual Effects',
+    { name: 'Best Picture', nominees: [
+      'Bugonia', 'F1', 'Frankenstein', 'Hamnet', 'Marty Supreme',
+      'One Battle After Another', 'The Secret Agent', 'Sentimental Value',
+      'Sinners', 'Train Dreams',
+    ]},
+    { name: 'Best Director', nominees: [
+      'Paul Thomas Anderson — One Battle After Another',
+      'Ryan Coogler — Sinners',
+      'Josh Safdie — Marty Supreme',
+      'Joachim Trier — Sentimental Value',
+      'Chloé Zhao — Hamnet',
+    ]},
+    { name: 'Best Actor', nominees: [
+      'Timothée Chalamet — Marty Supreme',
+      'Leonardo DiCaprio — One Battle After Another',
+      'Ethan Hawke — Blue Moon',
+      'Michael B. Jordan — Sinners',
+      'Wagner Moura — The Secret Agent',
+    ]},
+    { name: 'Best Actress', nominees: [
+      'Jessie Buckley — Hamnet',
+      'Rose Byrne — If I Had Legs I\'d Kick You',
+      'Kate Hudson — Song Sung Blue',
+      'Renate Reinsve — Sentimental Value',
+      'Emma Stone — Bugonia',
+    ]},
+    { name: 'Best Supporting Actor', nominees: [
+      'Benicio del Toro — One Battle After Another',
+      'Jacob Elordi — Frankenstein',
+      'Delroy Lindo — Sinners',
+      'Sean Penn — One Battle After Another',
+      'Stellan Skarsgård — Sentimental Value',
+    ]},
+    { name: 'Best Supporting Actress', nominees: [
+      'Elle Fanning — Sentimental Value',
+      'Inga Ibsdotter Lilleaas — Sentimental Value',
+      'Amy Madigan — Weapons',
+      'Wunmi Mosaku — Sinners',
+      'Teyana Taylor — One Battle After Another',
+    ]},
+    { name: 'Best Original Screenplay', nominees: [
+      'Robert Kaplow — Blue Moon',
+      'Jafar Panahi — It Was Just an Accident',
+      'Ronald Bronstein & Josh Safdie — Marty Supreme',
+      'Eskil Vogt & Joachim Trier — Sentimental Value',
+      'Ryan Coogler — Sinners',
+    ]},
+    { name: 'Best Adapted Screenplay', nominees: [
+      'Will Tracy — Bugonia',
+      'Guillermo del Toro — Frankenstein',
+      'Chloé Zhao & Maggie O\'Farrell — Hamnet',
+      'Paul Thomas Anderson — One Battle After Another',
+      'Clint Bentley & Greg Kwedar — Train Dreams',
+    ]},
+    { name: 'Best Animated Feature Film', nominees: [
+      'Arco', 'Elio', 'KPop Demon Hunters',
+      'Little Amélie or the Character of Rain', 'Zootopia 2',
+    ]},
+    { name: 'Best International Feature Film', nominees: [
+      'The Secret Agent (Brazil)',
+      'It Was Just an Accident (France)',
+      'Sentimental Value (Norway)',
+      'Sirât (Spain)',
+      'The Voice of Hind Rajab (Tunisia)',
+    ]},
+    { name: 'Best Documentary Feature', nominees: [
+      'The Alabama Solution',
+      'Come See Me in the Good Light',
+      'Cutting Through Rocks',
+      'Mr. Nobody Against Putin',
+      'The Perfect Neighbor',
+    ]},
+    { name: 'Best Original Score', nominees: [
+      'Jerskin Fendrix — Bugonia',
+      'Alexandre Desplat — Frankenstein',
+      'Max Richter — Hamnet',
+      'Jonny Greenwood — One Battle After Another',
+      'Ludwig Göransson — Sinners',
+    ]},
+    { name: 'Best Original Song', nominees: [
+      '"Golden" — KPop Demon Hunters',
+      '"Dear Me" — Diane Warren: Relentless',
+      '"I Lied to You" — Sinners',
+      '"Sweet Dreams of Joy" — Viva Verdi!',
+      '"Train Dreams" — Train Dreams',
+    ]},
+    { name: 'Best Cinematography', nominees: [
+      'Frankenstein', 'Marty Supreme', 'One Battle After Another',
+      'Sinners', 'Train Dreams',
+    ]},
+    { name: 'Best Film Editing', nominees: [
+      'F1', 'Marty Supreme', 'One Battle After Another',
+      'Sentimental Value', 'Sinners',
+    ]},
+    { name: 'Best Production Design', nominees: [
+      'Frankenstein', 'Hamnet', 'Marty Supreme',
+      'One Battle After Another', 'Sinners',
+    ]},
+    { name: 'Best Costume Design', nominees: [
+      'Avatar: Fire and Ash', 'Frankenstein', 'Hamnet',
+      'Marty Supreme', 'Sinners',
+    ]},
+    { name: 'Best Makeup and Hairstyling', nominees: [
+      'Frankenstein', 'Kokuho', 'Sinners',
+      'The Smashing Machine', 'The Ugly Stepsister',
+    ]},
+    { name: 'Best Sound', nominees: [
+      'F1', 'Frankenstein', 'One Battle After Another',
+      'Sinners', 'Sirât',
+    ]},
+    { name: 'Best Visual Effects', nominees: [
+      'Avatar: Fire and Ash', 'F1', 'Jurassic World Rebirth',
+      'The Lost Bus', 'Sinners',
+    ]},
+    { name: 'Best Casting', nominees: [
+      'Hamnet', 'Marty Supreme', 'One Battle After Another',
+      'The Secret Agent', 'Sinners',
+    ]},
+    { name: 'Best Live Action Short Film', nominees: [
+      'Butcher\'s Stain', 'A Friend of Dorothy',
+      'Jane Austen\'s Period Drama', 'The Singers',
+      'Two People Exchanging Saliva',
+    ]},
+    { name: 'Best Animated Short Film', nominees: [
+      'Butterfly', 'Forevergreen', 'The Girl Who Cried Pearls',
+      'Retirement Plan', 'The Three Sisters',
+    ]},
+    { name: 'Best Documentary Short Film', nominees: [
+      'All the Empty Rooms',
+      'Armed Only with a Camera: The Life and Death of Brent Renaud',
+      'Children No More: Were and Are Gone',
+      'The Devil Is Busy',
+      'Perfectly a Strangeness',
+    ]},
   ];
 
   // --- Local Storage Helpers ---
@@ -170,7 +284,7 @@ const OscarData = (() => {
   }
 
   function getDefaultCategories() {
-    return DEFAULT_CATEGORIES.map(name => ({ name, nominees: [] }));
+    return DEFAULT_CATEGORIES.map(c => ({ name: c.name, nominees: [...c.nominees] }));
   }
 
   function categoriesConfigured() {
