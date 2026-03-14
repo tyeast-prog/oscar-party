@@ -165,21 +165,28 @@
       showMsg(lookupMsg, 'Please enter your name.', 'warning');
       return;
     }
-    const guest = OscarData.findGuestByName(name);
-    if (!guest) {
-      showMsg(lookupMsg, 'No submission found for that name.', 'warning');
-      return;
-    }
-    // Load the full party if this guest has a partyId
-    if (guest.partyId) {
-      editingPartyId = guest.partyId;
-      const party = OscarData.getGuestsByPartyId(guest.partyId);
-      populateFormFromParty(party);
-    } else {
-      editingPartyId = guest.id; // solo guest, use their id as partyId
-      populateFormFromParty([guest]);
-    }
-    showMsg(lookupMsg, 'Found your submission! Edit below and re-submit.', 'success');
+    const btn = document.getElementById('btn-lookup');
+    btn.disabled = true;
+    btn.textContent = 'Looking up…';
+    OscarData.loadGuestsFromFirestore().then(() => {
+      btn.disabled = false;
+      btn.textContent = 'Look Up';
+      const guest = OscarData.findGuestByName(name);
+      if (!guest) {
+        showMsg(lookupMsg, 'No submission found for that name.', 'warning');
+        return;
+      }
+      // Load the full party if this guest has a partyId
+      if (guest.partyId) {
+        editingPartyId = guest.partyId;
+        const party = OscarData.getGuestsByPartyId(guest.partyId);
+        populateFormFromParty(party);
+      } else {
+        editingPartyId = guest.id; // solo guest, use their id as partyId
+        populateFormFromParty([guest]);
+      }
+      showMsg(lookupMsg, 'Found your submission! Edit below and re-submit.', 'success');
+    });
   });
 
   function populateFormFromParty(party) {

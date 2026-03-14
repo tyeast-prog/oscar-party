@@ -250,8 +250,8 @@ const OscarData = (() => {
 
   // Pull all guests fresh from Firestore into localStorage
   function loadGuestsFromFirestore() {
-    if (!db) return;
-    db.collection('guests').get()
+    if (!db) return Promise.resolve();
+    return db.collection('guests').get()
       .then(snapshot => {
         const guests = [];
         snapshot.forEach(doc => guests.push({ id: doc.id, ...doc.data() }));
