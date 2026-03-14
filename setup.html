@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setup — Oscar Party</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Category &amp; Nominee Setup</h1>
+      <p>Add nominees for each Oscar category</p>
+    </header>
+
+    <nav class="top-nav">
+      <a href="index.html">Home</a>
+      <a href="setup.html" class="active">Setup</a>
+      <a href="guest.html">Guest Form</a>
+      <a href="admin.html">Dashboard</a>
+      <a href="scoreboard.html">Scoreboard</a>
+    </nav>
+
+    <div class="form-group">
+      <label for="show-date">Show Date</label>
+      <input type="date" id="show-date">
+    </div>
+
+    <div id="categories-container"></div>
+
+    <div class="btn-group" style="margin-top:1.5rem">
+      <button class="btn btn-outline" id="btn-add-category">+ Add Category</button>
+      <button class="btn btn-gold" id="btn-save">Save All</button>
+      <button class="btn btn-outline" id="btn-reset">Reset to Defaults</button>
+    </div>
+    <div id="save-msg" class="alert alert-success hidden" style="margin-top:1rem">Saved successfully!</div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/setup.js"></script>
+</body>
+</html>

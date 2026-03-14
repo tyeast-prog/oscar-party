@@ -1,0 +1,14 @@
+# Firebase
+.firebase/
+.firebaserc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Node (if firebase-tools is installed locally)
+node_modules/
